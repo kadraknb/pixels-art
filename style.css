@@ -11,6 +11,14 @@
     margin: -2px;
     padding: 0px;
 }
+.color2 {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin: -2px;
+    padding: 0px;
+}
 .red {
   background-color: red;
 }
@@ -26,3 +34,6 @@
 /* .yellow {
     background-color: rgb(255, 255, 0);
 } */
+.white{
+    background-color: white;
+}
