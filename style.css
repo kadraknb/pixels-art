@@ -4,20 +4,26 @@
     height: 50px;
 }
 .color {
+    
     border: 1px solid black;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     display: inline-block;
-    margin: -2px;
-    padding: 0px;
+    margin: -px;
+    margin-left: 5px;
+    
+    
 }
-.color2 {
+.pixel {
+    /* //box-sizing:border-box ; */
     border: 1px solid black;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     display: inline-block;
-    margin: -2px;
-    padding: 0px;
+    margin-bottom: -5px;
+    margin-left: -1px;
+    background-color: white;
+   
 }
 .red {
   background-color: red;
@@ -34,6 +40,6 @@
 /* .yellow {
     background-color: rgb(255, 255, 0);
 } */
-.white{
+/* .white{
     background-color: white;
-}
+} */
