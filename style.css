@@ -3,6 +3,7 @@
     width: 256px;
     height: 50px;
 }
+
 .color {
     
     border: 1px solid black;
@@ -14,6 +15,10 @@
     
     
 }
+.selected {
+    /* border: 10px solid red; */
+        
+    }
 .pixel {
     /* //box-sizing:border-box ; */
     border: 1px solid black;
