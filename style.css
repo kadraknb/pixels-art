@@ -15,6 +15,9 @@
     
     
 }
+#pixel-board {
+    width:fit-content;
+}
 .selected {
     /* border: 10px solid red; */
         
