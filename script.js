@@ -1,58 +1,79 @@
-/* eslint-disable no-restricted-globals */
-document.getElementsByClassName('color')[0].style.backgroundColor = 'rgb(0, 0, 0)';
-for (let i3 = 1; i3 < 4; i3 += 1) {
-  const nr1 = Math.floor(Math.random() * 255);
-  const nr2 = Math.floor(Math.random() * 255);
-  const nr3 = Math.floor(Math.random() * 255);
-  const nr22 = `rgb(${nr1},${nr2},${nr3})`;
-  document.getElementsByClassName('color')[i3].style.backgroundColor = nr22;
-}
+document.querySelector('#corrgb').style.backgroundColor = document.getElementById('corrgb').value;
+document.addEventListener('mousemove', () => {
+  document.querySelector('#corrgb').style.backgroundColor = document.getElementById('corrgb').value;
+});
+const ID_BOARD = '#pixel-board2';
 
-function criarDiv(id, bb) {
+function randomColorPalette() {
+  for (let i3 = 0; i3 < 4; i3 += 1) {
+    const nr1 = Math.floor(Math.random() * 255);
+    const nr2 = Math.floor(Math.random() * 255);
+    const nr3 = Math.floor(Math.random() * 255);
+    const nr22 = `rgb(${nr1},${nr2},${nr3})`;
+    document.getElementsByClassName('color')[i3].style.backgroundColor = nr22;
+  }
+}
+randomColorPalette();
+
+function createPixelColumn(id, bb) {
   for (let i3 = 0; i3 < bb; i3 += 1) {
-    document.querySelector(id)
-      .appendChild(document.createElement('div'))
-      .className = 'colunaPixel';
+    document
+      .querySelector(id)
+      .appendChild(document.createElement('div')).className = 'colunaPixel';
   }
   for (let i = 0; i < bb; i += 1) {
     for (let i2 = 0; i2 < bb; i2 += 1) {
-      document.querySelectorAll('.colunaPixel')[i2]
-        .appendChild(document.createElement('div'))
-        .className = 'pixel';
+      document
+        .querySelectorAll('.colunaPixel')[i2]
+        .appendChild(document.createElement('div')).className = 'pixel';
     }
   }
 }
-const board = '#pixel-board2';
-criarDiv(board, 5);
+createPixelColumn(ID_BOARD, 25);
 
-document.getElementById('generate-board').addEventListener('click', () => {
+function pintar() {
+  const tabeladecor = document.querySelectorAll('.pixel');
+  tabeladecor.forEach((pixel) => {
+    pixel.addEventListener('click', (event) => {
+      const cor = document.querySelector('.selected').style.backgroundColor;
+      const localPinta = event.target;
+      localPinta.style.backgroundColor = cor;
+    });
+  });
+}
+pintar();
+
+function createPixelColumnPlus() {
   let xy = document.getElementById('board-size').value;
   const valorAterado = document.getElementById('board-size').value;
-  if (valorAterado === '') {
+  if (!valorAterado) {
     alert('Board inválido!');
     return;
   }
-  if (valorAterado < 5) { xy = 5; }
-  if (valorAterado > 50) { xy = 50; }
-  document.querySelector(board)
-    .remove(document.querySelector(board));
-  criarDiv('#pixel-board', xy);
+  if (valorAterado < 5) {
+    xy = 5;
+  }
+  if (valorAterado > 100) {
+    xy = 100;
+  }
+  document
+    .querySelectorAll('.colunaPixel')
+    .forEach((coluna) => { const col = coluna; col.outerHTML = ''; });
+  createPixelColumn('#pixel-board', xy);
+}
+document.getElementById('generate-board').addEventListener('click', () => {
+  createPixelColumnPlus();
+  pintar();
 });
 
-const color1 = document.querySelector('#color-palette');
-color1.addEventListener('click', () => {
+// selecionar cor
+const colorPalette = document.querySelector('#color-palette');
+colorPalette.addEventListener('click', (event) => {
   document.querySelector('.selected').classList.remove('selected');
   event.target.classList.add('selected');
 });
 
-const tabeladecor = document.querySelector('#pixel-board');
-tabeladecor.addEventListener('click', () => {
-  const cor = document.querySelector('.selected').style.backgroundColor;
-  const localPinta = event.target;
-  localPinta.style.backgroundColor = cor;
-});
-
 const limpar = document.querySelector('#clear-board');
 limpar.addEventListener('click', () => {
-  location.reload();
+  window.location.reload();
 });
