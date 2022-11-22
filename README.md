@@ -14,7 +14,10 @@ uma página web que contém uma paleta de cores funcional que poderá ser utiliz
 - DOM
 - Javascript
 - HTML
-
+#
+## Para roda o projeto e necessário de uma extensão do VScode "Nome: Live Server"
+Link do Marketplace do VS: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+#
 ## 📪 Contato
 
 - Email: [vagner_cardoso_s@outlook.com](vagner_cardoso_s@outlook.com)

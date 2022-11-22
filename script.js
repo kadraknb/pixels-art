@@ -71,6 +71,9 @@ const colorPalette = document.querySelector('#color-palette');
 colorPalette.addEventListener('click', (event) => {
   document.querySelector('.selected').classList.remove('selected');
   event.target.classList.add('selected');
+  const newCor = document.querySelector('.selected').style.backgroundColor
+  document.querySelector('#pixel-board')
+    .style.backgroundColor = newCor
 });
 
 const limpar = document.querySelector('#clear-board');
